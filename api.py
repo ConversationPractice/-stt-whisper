@@ -34,5 +34,3 @@ def transcribe_audio(bs64_audio: str) -> str:
 
     # Transcribe audio
     return model.transcribe("output.wav")["text"]
-
-app.run()

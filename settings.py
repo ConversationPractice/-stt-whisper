@@ -49,6 +49,14 @@ def settings_page():
                               index=models_name_list.index(config_dict["model_name"]))
     config_dict["model_name"] = model_name
     
+    # 模型参数列表
+    body = "|模型|参数量|需要的显存|相对速度|\n" \
+           "|:------:|:----------:|:-------------:|:--------------:|\n"
+    for key in models_dict.keys():
+        value = models_dict[key]
+        body += f"|  {key}  |    {value[0]} M    |     ~{value[1]} GB     |      ~{value[2]}x      |"
+    st.markdown()
+
     # 确认按钮
     if st.button("保存更改"):
         try:    
